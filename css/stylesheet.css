@@ -242,7 +242,7 @@ form {
 	text-align: center;
 }
 #Submit {
-	background: white;
+	background: none;
 	color: black;
 	border-style: double;
 	border-width: 7px;
@@ -251,6 +251,7 @@ form {
 	width: 100px;
 	font-family: verdana;
 	font-size: 20px;
+	padding: 0;
 }
 
 /*To adjust layout on other devices. Must include Meta in HTML file.*/
