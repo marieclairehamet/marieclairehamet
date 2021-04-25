@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+	{% if include_js %}
+		<script type="text/javascript" src="/js/FormValidation copy.js"></script>
+	{% endif %}
+
+</head>
+<body>
+
+<h1>Marie Claire Hamet</h1>
+
+<ul class="stuff">
+  <li class="for"><a class="active" href="/MCWebsiteCoverPage"><strong>Home</strong></a></li>
+  <li class="for"><a href="/EducationPage">Education</a></li>
+  <li class="for"><a href="/ExperiencePage">About Me</a></li>
+  <li class="for"><a href="/ConnectWithMePage">Contact Me</a></li>
+</ul>
+
+{{ content }}
+
+</body>
+</html>
