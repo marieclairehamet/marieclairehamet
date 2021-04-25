@@ -1,4 +1,3 @@
-alert("Look! An Alert!")
 
 function validateFirstName() {//test input for 2-20 allowed characters
 	var firstname = document.getElementById("firstname").value;
