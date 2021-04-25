@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Contact Me</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+	
+		<script type="text/javascript" src="/js/FormValidation copy.js"></script>
+	
+
+</head>
+<body>
+
+<h1>Marie Claire Hamet</h1>
+
+<ul class="stuff">
+  <li class="for"><a  href="/"><strong>Home</strong></a></li>
+  <li class="for"><a  href="/education">Education</a></li>
+  <li class="for"><a  href="/aboutme">About Me</a></li>
+  <li class="for"><a class="active" href="/contactme">Contact Me</a></li>
+</ul>
+
+
+<div class="Peeloo">
+	<img class="pic" src="/images/Peeloo Monkey.jpg"/>
+	<img  class="pic" src="/images/Peeloo Sun.jpg"/>
+	<img  class="pic" src="/images/Peeloo Lay.jpg"/>
+	<img  class="pic" src="/images/Peeloo Smile.jpg">
+	<img  class="pic" src="/images/Peeloo Sun 2.jpg"/>
+</div>
+
+<p class="text">SURPRISE!!! <br><br> This is my baby Peeloo! She's been with me since the 8th grade. I even brought her to college with me. She has a genetic kidney disease <a href="https://vcahospitals.com/know-your-pet/kidney-disease-polycystic-kidney-disease-in-cats">(PKD)</a> and realistically shouldn't have lived passed the age of 7. She also has some sort of skin issue (veterinarians can't identify it. It's not an allergy nor is it mites/fleas. It may be anxiety) where she licks certain areas excessively and bleeds, so she wears a cone or shirt sometimes. <br><br>  I truly feel blessed that she is with me to this day <br> PS: She looove the fresh air <3 </p>
+
+<p class="text">
+	<strong style="font-size: 20px;">Nevertheless,</strong><br><br> this is a form where viewers can provide responses to the below  criteria. I wanted to include a form like this to showcase my skills using not only HTML and CSS, but also JavaScript.<br><br>
+	On another note, I am currently located in Somerville, MA and you can reach me via <strong>marieclairehamet@gmail.com!</strong><br><br>
+	Please check out my <a href="https://www.linkedin.com/in/marie-claire-hamet-833bb7154/"><strong>LinkedIn Page</strong></a>!<br>
+</p>
+
+<p class="season">
+	<u>What's your favorite season? </u><br>
+	(Able to select more than just one!) <br><br>
+	<input type="checkbox" name="season" value="Fall">I love the fall<br>
+	<input type="checkbox" name="season" value="Summer">I love the summer<br>
+	<input type="checkbox" name="season" value="Winter">I love the winter<br>
+	<input type="checkbox" name="season" value="Spring">I love the spring<br><br>
+	<u>Days available:</u> <br><br>
+	<input type="date" name="availabledays"><br><br></p><br>
+
+<form action="Submit Page copy.html" onsubmit="return validateForm();">
+	
+	<div id="fullpage">
+	
+	<table class="center">
+		<tr>
+			<td class="label_column">First Name:</td>
+			<td class="input_column">
+				<input name="firstname" id="firstname" type="text" onblur="validateFirstName();" placeholder="John">
+				<div id="firstnamePrompt">&nbsp;
+				</div> 
+			</td>
+		</tr>
+		<tr>
+			<td class="label_column">Last Name:</td>
+			<td class="input_column">
+				<input name="lastname" id="lastname" type="text" onblur="validateLastName();" placeholder="Apple">
+				<div id="lastnamePrompt">&nbsp;
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label_column">Email:</td>
+			<td class="input_column">
+				<input name="email" id="email" type="text" onblur="validateEmail();" placeholder="johnapple@gmail.com">
+				<div id="emailPrompt">&nbsp;
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label_column">Age:</td>
+			<td class="input_column">
+				<input name="age" id="age" type="text" onblur="validateAge();" placeholder="24">
+				<div id="agePrompt">&nbsp;
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label_column">Phone Number:</td>
+			<td class="input_column">
+				<input name="phonenumber" id="phonenumber" type="text" onblur="validatePhone();" placeholder="xxx-xxx-xxxx">
+				<div id="phonenumberPrompt">&nbsp;
+				</div>
+			</td>
+		</tr>
+	</table><br>
+		
+	<input id="Submit" type="submit" name="Submit"/>
+
+</div>
+</form>
+
+
+</body>
+</html>
