@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Home</title>
+	<title>{{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
 	{% if include_js %}
@@ -15,10 +15,10 @@
 <h1>Marie Claire Hamet</h1>
 
 <ul class="stuff">
-  <li class="for"><a class="active" href="/"><strong>Home</strong></a></li>
-  <li class="for"><a href="/education">Education</a></li>
-  <li class="for"><a href="/aboutme">About Me</a></li>
-  <li class="for"><a href="/contactme">Contact Me</a></li>
+  <li class="for"><a {% if title == "Home" %}class="active"{% endif %} href="/"><strong>Home</strong></a></li>
+  <li class="for"><a {% if title == "Education" %}class="active"{% endif %} href="/education">Education</a></li>
+  <li class="for"><a {% if title == "About Me" %}class="active"{% endif %} href="/aboutme">About Me</a></li>
+  <li class="for"><a {% if title == "Contact Me" %}class="active"{% endif %} href="/contactme">Contact Me</a></li>
 </ul>
 
 {{ content }}

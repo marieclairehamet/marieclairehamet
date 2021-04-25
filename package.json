@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
   }
 }
