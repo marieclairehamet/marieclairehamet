@@ -1,0 +1,113 @@
+/*Header*/
+h1 {
+	color: black; 
+	font-size: 40px; 
+	text-align: center; 
+	font-family: courier new;
+	border: none;
+	text-decoration: underline;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+/*Background Image*/
+body {
+	background-image: url(https://image.freepik.com/free-photo/green-flat-lay-tropical-palm-leaf-branches-white-wooden-planks-background-room-text-copy-lettering_232693-303.jpg);
+	background-size: 130%;
+}
+
+/*Navigation Bar*/
+ul {
+	border: 1px solid black;
+	list-style-type: none;
+	margin: auto;
+	padding: 0;
+	overflow: hidden;
+	background-color: #F4F8AE;
+	font-family: courier new;
+	display: flex;
+    justify-content: space-evenly;
+}
+
+.stuff {
+	font-size: 12px;
+}
+
+li.for {
+	font-size: 14px;
+	padding-bottom: 2px;
+}
+
+li a {
+	display: inline-block;
+	color: black;
+	text-align: center;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	text-decoration: underline;
+}
+
+li a:hover:not(.active) {
+	background-color: white;
+}
+
+.active {
+	color: black;
+	background-color: white;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+
+/*Text*/
+li {
+	text-align: left;
+	font-weight: normal;
+	font-size: 18px;
+	padding-bottom: 20px;
+}
+
+/*Textbox*/
+table { 
+	margin-left: 20%; 
+	margin-right: 20%; 
+	font-family: courier new;
+	border: 1px solid black;
+	background-color: white;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	width: 60%;
+}
+
+td {
+	border-bottom: 1px solid black;
+	text-align: center;
+	font-weight: bold;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 22px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+/*To adjust layout on other devices. Must include Meta in HTML file.*/
+@media only screen and (max-width: 800px) {
+	body {
+		background-image: url(https://image.freepik.com/free-photo/green-flat-lay-tropical-palm-leaf-branches-white-wooden-planks-background-room-text-copy-lettering_232693-303.jpg);
+		background-size: 200%;
+	}
+	td {
+		font-size: 13px;
+	}
+	li {
+		font-size: 12px;
+	}
+	table {
+		margin: auto;
+		width: 100%;
+	}
+}
