@@ -105,8 +105,10 @@ img#cert {
 	width: 100%;
 }
 .Peeloo {
-	margin: auto;
-	display: flex;
+	text-align: center;
+}
+.Peeloo img.pic {
+	display: inline-block;
 }
 
 hr {
