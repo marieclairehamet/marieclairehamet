@@ -9,125 +9,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Page-specific styles */
-    .page-section {
-      display: none;
-      animation: fadeInUp 0.5s ease-out;
-    }
-    
-    .page-section.active {
-      display: block;
-    }
-    
-    .nav-link {
-      cursor: pointer;
-    }
-    
-    /* Updated Hero - Tropical Theme */
-    .hero {
-      position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                  url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=1500');
-      background-size: cover;
-      background-position: center;
-      padding: 100px 20px;
-      color: white;
-      text-align: center;
-    }
+  /* Base Body Styles - The "Stuck" Background */
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This "sticks" the background */
+    font-family: 'Lato', sans-serif;
+  }
 
-    .hero-subtitle {
-      font-family: 'Lato', sans-serif;
-      font-weight: 400;
-      font-size: 1.5rem;
-      color: #FFFFFF !important; /* Forces font to White */
-      margin-top: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    .hero-focus-text {
-        font-size: 1.15rem; 
-        max-width: 650px; 
-        margin: 1.5rem auto 0; 
-        color: #FFFFFF !important; /* Forces font to White */
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+  /* Content Section Enhancements */
+  .content-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 40px;
+    /* Frosted Glass effect: ensures white text is visible on light sand/waves */
+    background: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
 
-    .hero-cta {
-      margin-top: 2rem;
-      position: relative;
-    }
-    
-    /* Tropical decorative elements */
-    .palm-decoration {
-      position: fixed;
-      width: 400px;
-      opacity: 0.15;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .palm-left { bottom: -50px; left: -100px; transform: rotate(15deg); }
-    .palm-right { top: -50px; right: -100px; transform: rotate(-15deg); }
-    
-    /* Value cards grid */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .value-card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 16px;
-      padding: 1.75rem;
-      text-align: center;
-      border: 2px solid rgba(64, 224, 208, 0.3);
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    
-    .value-card:hover {
-      transform: translateY(-8px);
-      border-color: #40e0d0;
-    }
+  /* Hero Section - Transparent since the body has the background */
+  .hero {
+    padding: 120px 20px;
+    text-align: center;
+    background: transparent; 
+  }
 
-    /* Skills tags */
-    .skill-tag {
-      background: #f0fdfc;
-      padding: 0.6rem 1.2rem;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      border: 1px solid #40e0d0;
-      transition: all 0.3s ease;
-    }
-    
-    .skill-tag:hover {
-      background: #40e0d0;
-      color: white;
-    }
-    
-    /* Profile photo styling */
-    .profile-image {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid #40e0d0;
-      margin: 0 auto 1.5rem;
-      display: block;
-    }
+  .hero-subtitle, .hero-focus-text {
+    color: #FFFFFF !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Shadow helps white text pop on light blue sky */
+    font-weight: 600;
+  }
 
-    /* Hero wave bottom */
-    .hero-wave {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23ffffff' d='M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat;
-      background-size: cover;
-    }
-  </style>
+  .hero-subtitle {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Value Cards - Made slightly more transparent to fit the theme */
+  .value-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 1.75rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: transform 0.3s ease;
+  }
+
+  .value-card h4 {
+    color: #40e0d0; /* Turquoise accent for tropical feel */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+
+  /* Remove the moving wave and palm decorations to keep it clean */
+  .hero-wave, .palm-decoration {
+    display: none;
+  }
+</style>
 </head>
 <body>
   <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=80" alt="" class="palm-decoration palm-left" aria-hidden="true">
