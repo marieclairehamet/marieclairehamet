@@ -1,98 +1,51 @@
-/* Google Fonts */
+/* Master Tropical Stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  --ocean-deep: #006994;
-  --ocean-primary: #0891b2;
-  --turquoise: #40e0d0;
-  --sand-light: #fdf6e3;
-  --text-dark: #1a3a4a;
-  --white-glass: rgba(255, 255, 255, 0.15);
+  --white-glass: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.3);
+  --turquoise: #40e0d0;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Lato', sans-serif;
-  color: white; /* Defaulting to white for the tropical overlay */
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  min-height: 100vh;
-  line-height: 1.7;
+  margin: 0; padding: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover; background-position: center; background-attachment: fixed;
+  font-family: 'Lato', sans-serif; color: white; line-height: 1.8;
 }
 
-/* Master Glass Container - Use this for all pages */
 .content-wrapper {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px;
-  background: var(--white-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid var(--glass-border);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  max-width: 900px; margin: 40px auto; padding: 40px;
+  background: var(--white-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px; border: 1px solid var(--glass-border);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-h2, h3 {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-}
+h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 1rem; }
+h2 { font-size: 2.2rem; text-align: center; letter-spacing: 2px; }
+h3 { font-size: 1.4rem; margin-top: 2.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; text-align: left; }
 
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.6rem; margin-top: 2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;}
+.quickclick { width: 100%; margin-bottom: 30px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 15px; border-collapse: collapse; }
+.quickclick a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; display: block; margin-bottom: 5px; }
+.quickclick a:hover { color: var(--turquoise); transform: translateX(5px); }
 
-/* Quick Click Navigation Table */
-.quickclick {
-  width: 100%;
-  margin-bottom: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.quickclick a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.quickclick a:hover { color: var(--turquoise); padding-left: 5px; }
-
-/* Certification Tiles */
-.cert-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
-}
-
+.cert-grid { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; justify-content: flex-start; }
 .cert-tile {
-  width: 200px;
-  height: 140px;
-  background: rgba(255,255,255,0.2);
-  border: 2px solid white;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
+  width: 200px; height: 140px; background: rgba(255,255,255,0.2); border: 2px solid white;
+  border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: transform 0.3s ease; cursor: pointer; text-decoration: none; color: white; text-align: center;
 }
-
 .cert-tile:hover { transform: scale(1.05); background: rgba(255,255,255,0.3); }
 
 ul { margin-left: 25px; margin-bottom: 1.5rem; }
 li { margin-bottom: 0.8rem; }
+strong { color: #e0ffff; } /* Soft cyan for emphasis */
+
+.btn-primary {
+  background-color: white; color: #0077be !important; padding: 12px 30px; border: none;
+  border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-decoration: none; display: inline-block;
+}
+
+input, textarea { width: 100%; padding: 12px; margin-top: 5px; margin-bottom: 20px; border-radius: 8px; border: none; background: rgba(255,255,255,0.9); }
