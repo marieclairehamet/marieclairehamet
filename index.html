@@ -9,133 +9,136 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-  /* Base Body Styles - The "Stuck" Background */
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
-                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* This "sticks" the background */
-    font-family: 'Lato', sans-serif;
-  }
+    /* Fixed Light Tropical Background */
+    body {
+      margin: 0;
+      padding: 0;
+      /* Lightening the image slightly with a white tint for that 'airy' feel */
+      background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; 
+      font-family: 'Lato', sans-serif;
+      color: white;
+    }
 
-  /* Content Section Enhancements */
-  .content-section {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 40px;
-    /* Frosted Glass effect: ensures white text is visible on light sand/waves */
-    background: rgba(0, 0, 0, 0.4); 
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-  }
+    /* Content Area: No dark boxes, just clear text with a soft shadow */
+    .content-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-  /* Hero Section - Transparent since the body has the background */
-  .hero {
-    padding: 120px 20px;
-    text-align: center;
-    background: transparent; 
-  }
+    /* Use text-shadow to make white text pop on light backgrounds */
+    p, h1, h2, h3, li {
+      color: white !important;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+      line-height: 1.8;
+    }
 
-  .hero-subtitle, .hero-focus-text {
-    color: #FFFFFF !important;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Shadow helps white text pop on light blue sky */
-    font-weight: 600;
-  }
+    .hero {
+      padding: 150px 20px 80px;
+    }
 
-  .hero-subtitle {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
 
-  /* Value Cards - Made slightly more transparent to fit the theme */
-  .value-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    border-radius: 16px;
-    padding: 1.75rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    transition: transform 0.3s ease;
-  }
+    .hero-subtitle {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
 
-  .value-card h4 {
-    color: #40e0d0; /* Turquoise accent for tropical feel */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  }
+    .hero-focus-text {
+      font-size: 1.3rem;
+      font-style: italic;
+      margin-top: 10px;
+    }
 
-  /* Remove the moving wave and palm decorations to keep it clean */
-  .hero-wave, .palm-decoration {
-    display: none;
-  }
-</style>
+    /* Section Headings */
+    .section-heading {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    /* Value Cards: Simplified for the light theme */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .value-card {
+      background: rgba(255, 255, 255, 0.2); /* Very light highlight */
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .value-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #e0ffff !important; /* Soft cyan to keep with tropics */
+    }
+
+    /* Hide unnecessary decorations */
+    .hero-wave, .palm-decoration, .gold-accent {
+      display: none !important;
+    }
+
+    button.btn-primary {
+      background-color: white;
+      color: #0077be !important; /* Ocean blue text for button */
+      padding: 12px 30px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
-  <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=80" alt="" class="palm-decoration palm-left" aria-hidden="true">
-  <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=80" alt="" class="palm-decoration palm-right" aria-hidden="true">
 
-  <header>
+  <header style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);">
     <div class="header-content">
-      <div class="logo">MC<span> Hamet</span>, SHRM-CP</div>
-      <nav>
-        <ul>
-          <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-          <li><a href="#" class="nav-link" data-page="journey">Professional Journey</a></li>
-          <li><a href="#" class="nav-link" data-page="education">Education</a></li>
-          <li><a href="#" class="nav-link" data-page="connect">Connect With Me</a></li>
-        </ul>
-      </nav>
-    </div>
+      <div class="logo" style="color: white;">MC<span> Hamet</span>, SHRM-CP</div>
+      </div>
   </header>
 
   <section id="home" class="page-section active">
     <div class="hero">
       <h1>Marie Claire Hamet, SHRM-CP</h1>
       <p class="hero-subtitle">Human Resources Certified Professional</p>
-      <p class="hero-focus-text">
-        Focused on People, Process, and Brand
-      </p>
+      <p class="hero-focus-text">Focused on People, Process, and Brand</p>
+      
       <div class="hero-cta">
         <button class="btn-primary nav-link" data-page="connect">Get In Touch</button>
       </div>
-      <div class="hero-wave"></div>
     </div>
 
-    <div class="content-section animate-in">
-      <p style="font-size: 1.15rem; text-align: center; margin-bottom: 2rem;">
-        I built this site to showcase myself as an HR professional, as well as to demonstrate my abilities in website development. It's a space where I can share my experience, my approach to people and processes, and how I bring ideas to life both strategically and technically.
+    <div class="content-section">
+      <p style="font-size: 1.2rem;">
+        I built this site to showcase myself as an HR professional, as well as to demonstrate my abilities in website development.
       </p>
 
-      <h2 class="section-heading centered" style="text-align: center;">About Me</h2>
+      <h2 class="section-heading">About Me</h2>
       
       <p>Hi, I'm Marie Claire. I work in Human Resources because I care deeply about how people experience their workplace. I believe the strongest organizations are built when employees feel supported, processes run smoothly, and the company's brand truly aligns with its internal culture.</p>
-      <p>My favorite part of what I do is improving the employee experience — whether that's through engagement initiatives, thoughtful onboarding, or creating spaces where feedback turns into real action.</p>
+      
       <p>At the heart of my work is a simple goal: create workplaces that feel intentional, aligned, and built to support both people and performance.</p>
 
-      <h3 class="section-heading" style="margin-top: 3rem;">What Matters to Me</h3>
-      <div class="values-grid">
-        <div class="value-card">
-          <h4>People First</h4>
-          <p>Creating workplaces where people feel valued and understood</p>
-        </div>
-        <div class="value-card">
-          <h4>Employee Experience</h4>
-          <p>Improving engagement through thoughtful initiatives</p>
-        </div>
-        <div class="value-card">
-          <h4>Operational Excellence</h4>
-          <p>Streamlining processes to strengthen efficiency</p>
-        </div>
-        <div class="value-card">
-          <h4>Brand Alignment</h4>
-          <p>Aligning culture, communication, and identity</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h3 class="section-heading">What Matters to Me</h3>
+      <div class="
