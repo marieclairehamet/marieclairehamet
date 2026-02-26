@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC Hamet, SHRM-CP | HR Professional</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-specific styles */
+    .page-section {
+      display: none;
+      animation: fadeInUp 0.5s ease-out;
+    }
+    
+    .page-section.active {
+      display: block;
+    }
+    
+    .nav-link {
+      cursor: pointer;
+    }
+    
+    /* Hero enhancements */
+    .hero-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+    }
+    
+    .hero-cta {
+      margin-top: 2rem;
+      position: relative;
+    }
+    
+    /* Tropical decorative elements */
+    .leaf-decoration {
+      position: absolute;
+      opacity: 0.12;
+      font-size: 4rem;
+      pointer-events: none;
+    }
+    
+    /* Value cards grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .value-card {
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 248, 0.95) 0%, 
+        rgba(127, 219, 218, 0.2) 50%,
+        rgba(135, 206, 235, 0.15) 100%
+      );
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: center;
+      border: 2px solid rgba(64, 224, 208, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow-ocean);
+    }
+    
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--turquoise), var(--palm-green), var(--sunset-gold));
+    }
+    
+    .value-card:hover {
+      transform: translateY(-8px) rotate(1deg);
+      box-shadow: 0 15px 40px var(--shadow-ocean);
+      border-color: var(--turquoise);
+    }
+    
+    .value-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--ocean-deep);
+      font-size: 1.1rem;
+    }
+    
+    /* Skills tags - Tropical theme */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-tag {
+      background: linear-gradient(135deg, 
+        rgba(64, 224, 208, 0.15) 0%, 
+        rgba(135, 206, 235, 0.1) 50%,
+        rgba(255, 255, 248, 0.9) 100%
+      );
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-medium);
+      border: 2px solid rgba(64, 224, 208, 0.4);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(64, 224, 208, 0.1);
+    }
+    
+    .skill-tag:hover {
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--palm-green) 100%);
+      border-color: var(--turquoise);
+      color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px var(--shadow-ocean);
+    }
+    
+    /* Timeline for experience - Tropical */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-top: 2rem;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, 
+        var(--turquoise) 0%, 
+        var(--palm-green) 30%,
+        var(--ocean-primary) 60%,
+        var(--sunset-gold) 100%
+      );
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, var(--turquoise), var(--ocean-primary));
+      border-radius: 50%;
+      border: 4px solid var(--sand-light);
+      box-shadow: 0 0 0 4px rgba(64, 224, 208, 0.2);
+    }
+    
+    .timeline-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+      font-size: 1.15rem;
+    }
+    
+    .timeline-item .company {
+      color: var(--ocean-deep);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    
+    .timeline-item .date {
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
+      color: var(--ocean-primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    /* Education cards - Tropical */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .edu-card {
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 248, 0.98) 0%, 
+        rgba(135, 206, 235, 0.15) 50%,
+        rgba(64, 224, 208, 0.1) 100%
+      );
+      border-radius: 16px;
+      padding: 1.75rem;
+      border-left: 5px solid var(--turquoise);
+      box-shadow: 0 4px 25px var(--shadow-ocean);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .edu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 35px var(--shadow-ocean);
+    }
+    
+    .edu-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, transparent 50%, rgba(64, 224, 208, 0.15) 50%);
+      border-radius: 0 0 16px 0;
+    }
+    
+    /* Contact section - Tropical */
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-card {
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 248, 0.95) 0%, 
+        rgba(64, 224, 208, 0.15) 50%,
+        rgba(135, 206, 235, 0.2) 100%
+      );
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(64, 224, 208, 0.3);
+      box-shadow: 0 4px 20px var(--shadow-ocean);
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px var(--shadow-ocean);
+      border-color: var(--turquoise);
+      background: linear-gradient(145deg, 
+        rgba(64, 224, 208, 0.15) 0%, 
+        rgba(255, 255, 248, 0.98) 50%,
+        rgba(135, 206, 235, 0.2) 100%
+      );
+    }
+    
+    .contact-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-card h4 {
+      color: var(--ocean-deep);
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+    
+    .contact-card a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    
+    .contact-card a:hover {
+      color: var(--turquoise);
+    }
+    
+    /* Profile photo styling - Tropical */
+    .profile-container {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    
+    .profile-image {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--turquoise);
+      box-shadow: 
+        0 0 0 6px var(--sand-light),
+        0 0 0 12px rgba(64, 224, 208, 0.3),
+        0 15px 50px var(--shadow-ocean);
+      margin: 0 auto 1.5rem;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .profile-image:hover {
+      transform: scale(1.03);
+      box-shadow: 
+        0 0 0 6px var(--sand-light),
+        0 0 0 12px rgba(64, 224, 208, 0.5),
+        0 20px 60px var(--shadow-ocean);
+    }
+    
+    .profile-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+    
+    .profile-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--ocean-deep);
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    
+    /* Checkbox styling - Tropical theme */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, 
+        rgba(64, 224, 208, 0.15) 0%, 
+        rgba(255, 255, 248, 0.9) 100%
+      );
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(64, 224, 208, 0.3);
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .checkbox-item:hover {
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--palm-green) 100%);
+      border-color: var(--turquoise);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    .checkbox-item input {
+      margin-right: 0.5rem;
+    }
+    
+    /* Section nav for mobile - Tropical */
+    .section-nav {
+      display: none;
+      background: linear-gradient(135deg, 
+        rgba(64, 224, 208, 0.2) 0%, 
+        rgba(135, 206, 235, 0.15) 50%,
+        rgba(255, 255, 248, 0.9) 100%
+      );
+      padding: 1.25rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise);
+      box-shadow: 0 2px 15px var(--shadow-ocean);
+    }
+    
+    .section-nav a {
+      color: var(--ocean-deep);
+      font-weight: 500;
+    }
+    
+    .section-nav a:hover {
+      color: var(--turquoise);
+    }
+    
+    @media (max-width: 768px) {
+      .section-nav {
+        display: block;
+      }
+      
+      .profile-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">MC<span> Hamet</span>, SHRM-CP</div>
+      <nav>
+        <ul>
+          <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+          <li><a href="#" class="nav-link" data-page="education">Education</a></li>
+          <li><a href="#" class="nav-link" data-page="journey">Professional Journey</a></li>
+          <li><a href="#" class="nav-link" data-page="connect">Connect With Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME PAGE -->
+  <section id="home" class="page-section active">
+    <div class="hero">
+      <h1>Marie Claire Hamet, SHRM-CP</h1>
+      <p class="hero-subtitle">Human Resources Certified Professional</p>
+      <p style="font-size: 1.15rem; max-width: 650px; margin: 1.5rem auto 0; position: relative;">
+        Focused on People, Process, and Brand
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary nav-link" data-page="connect">Get In Touch</button>
+      </div>
+    </div>
+
+    <div class="content-section animate-in">
+      <p style="font-size: 1.15rem; text-align: center; border: none; background: transparent; margin-bottom: 2rem;">
+        I built this site to showcase myself as an HR professional, as well as to demonstrate my abilities in website development. It's a space where I can share my experience, my approach to people and processes, and how I bring ideas to life both strategically and technically.
+      </p>
+
+      <div class="gold-accent"></div>
+
+      <h2 class="section-heading centered" style="text-align: center;">About Me</h2>
+      
+      <p style="border: none; background: transparent; text-align: left;">
+        Hi, I'm Marie Claire. I work in Human Resources because I care deeply about how people experience their workplace. I believe the strongest organizations are built when employees feel supported, processes run smoothly, and the company's brand truly aligns with its internal culture.
+      </p>
+
+      <p style="border: none; background: transparent; text-align: left;">
+        My favorite part of what I do is improving the employee experience — whether that's through engagement initiatives, thoughtful onboarding, or creating spaces where feedback turns into real action. I enjoy partnering with leadership to translate insight into improvements that employees can genuinely feel.
+      </p>
+
+      <p style="border: none; background: transparent; text-align: left;">
+        I'm equally passionate about operational efficiency. I love refining systems, simplifying processes, and building structures that make work clearer and more effective. When operations are strong, teams can focus on doing their best work.
+      </p>
+
+      <p style="border: none; background: transparent; text-align: left;">
+        At the heart of my work is a simple goal: create workplaces that feel intentional, aligned, and built to support both people and performance.
+      </p>
+
+      <h3 class="section-heading" style="margin-top: 3rem;">What Matters to Me</h3>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>People First</h4>
+          <p style="border: none; background: transparent; font-size: 0.95rem;">Creating workplaces where people feel valued and understood</p>
+        </div>
+        <div class="value-card">
+          <h4>Employee Experience</h4>
+          <p style="border: none; background: transparent; font-size: 0.95rem;">Improving engagement through thoughtful initiatives</p>
+        </div>
+        <div class="value-card">
+          <h4>Operational Excellence</h4>
+          <p style="border: none; background: transparent; font-size: 0.95rem;">Streamlining processes to strengthen efficiency</p>
+        </div>
+        <div class="value-card">
+          <h4>Brand Alignment</h4>
+          <p style="border: none; background: transparent; font-size: 0.95rem;">Aligning culture, communication, and identity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL JOURNEY PAGE -->
+  <section id="journey" class="page-section">
+    <div class="content-section animate-in">
+      <h2 class="section-heading centered" style="text-align: center;">My Professional Journey</h2>
+
+      <!-- Quick Navigation -->
+      <div class="section-nav">
+        <strong>Jump to:</strong>
+        <a href="#exp">Experience</a> • 
+        <a href="#skills-section">Skills</a> • 
+        <a href="#competencies">Competencies</a>
+      </div>
+
+      <h3 class="section-heading">Professional Summary</h3>
+      <p style="border: none; background: transparent; text-align: left;">
+        SHRM-CP-certified Human Resources professional with experience across talent acquisition, benefits administration, compliance, training and development, and employee relations. Passionate about HR operations, process optimization, and designing efficient people systems that empower employees and the organization.
+      </p>
+
+      <h3 class="section-heading" id="exp" style="margin-top: 2.5rem;">Professional Experience</h3>
+
+      <div class="timeline">
+        <!-- Cosan Group -->
+        <div class="timeline-item">
+          <h4>People Operations Partner</h4>
+          <p class="company">The Cosan Group</p>
+          <p class="date">Remote | September 2025 - Present</p>
+          <ul>
+            <li>Support end-to-end employee lifecycle operations for ~400 employees, including recruitment coordination, onboarding, employee relations support, and offboarding processes.</li>
+            <li>Lead onboarding and offboarding programs, facilitating new hire orientation, compliance and development trainings, system access setup, and exit interviews.</li>
+            <li>Manage LMS platforms (Paylocity & GO1), administer orientation, compliance, and leadership development courses.</li>
+            <li>Serve as primary point of contact for employee inquiries related to policies, benefits, schedules, and employment status changes.</li>
+            <li>Support employee retention initiatives through roundtables, engagement programs, and automation of forms and workflows.</li>
+          </ul>
+        </div>
+
+        <!-- Boston Senior Home Care -->
+        <div class="timeline-item">
+          <h4>HR Representative</h4>
+          <p class="company">Boston Senior Home Care</p>
+          <p class="date">Hybrid Remote | May 2024 - April 2025</p>
+          <ul>
+            <li>Planned and executed employee engagement initiatives and organizational-wide events for ~300 employees, strengthening culture and retention.</li>
+            <li>Administered benefits enrollments and changes via Paycom; served as primary liaison to benefits vendors.</li>
+            <li>Supported FMLA and reasonable accommodation processes, ensuring accurate documentation and policy compliance.</li>
+            <li>Designed and delivered compliance and onboarding training through Paycom LMS, leveraging tools like Synthesia AI and Criteria.</li>
+            <li>Managed recruiting workflows using ApplicantPro, including interviews, offers, CORI checks, and onboarding.</li>
+          </ul>
+        </div>
+
+        <!-- Metro Housing Boston -->
+        <div class="timeline-item">
+          <h4>HR Recruiting Coordinator</h4>
+          <p class="company">Metro Housing Boston</p>
+          <p class="date">Hybrid Remote | November 2020 - April 2024</p>
+          <ul>
+            <li>Managed training enrollment for ~300 employees via Relias, and supported performance and compensation initiatives.</li>
+            <li>Reduced open positions by 80% and achieved a 75% offer acceptance rate using ADP.</li>
+            <li>Decreased time-to-hire by 60% through streamlined screening and onboarding workflows.</li>
+            <li>Cut recruitment costs by 90% through targeted sourcing and budget management.</li>
+            <li>Led full-cycle recruiting including outreach, interviews, reference checks, and designed and hosted orientation.</li>
+            <li>Represented organization at college career fairs and managed employer branding efforts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gold-accent"></div>
+
+      <h3 class="section-heading" id="skills-section" style="margin-top: 2.5rem;">Technical Skills</h3>
+      
+      <h4 style="margin-bottom: 0.5rem; color: var(--ocean-deep);">HRIS / ATS / LMS</h4>
+      <div class="skills-container">
+        <span class="skill-tag">Paylocity</span>
+        <span class="skill-tag">ADP</span>
+        <span class="skill-tag">Paycom</span>
+        <span class="skill-tag">Workday</span>
+        <span class="skill-tag">ApplicantPro</span>
+        <span class="skill-tag">JazzHR</span>
+        <span class="skill-tag">Relias</span>
+        <span class="skill-tag">GO1</span>
+        <span class="skill-tag">Criteria</span>
+      </div>
+
+      <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--ocean-deep);">Tools & Software</h4>
+      <div class="skills-container">
+        <span class="skill-tag">SharePoint</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Outlook</span>
+        <span class="skill-tag">SolarWinds</span>
+        <span class="skill-tag">SalesForce</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">iCORI</span>
+      </div>
+
+      <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--ocean-deep);">Web Development</h4>
+      <div class="skills-container">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">SaaS</span>
+      </div>
+
+      <h3 class="section-heading" id="competencies" style="margin-top: 2.5rem;">Core HR Competencies</h3>
+      <div class="skills-container">
+        <span class="skill-tag">Talent Acquisition</span>
+        <span class="skill-tag">Onboarding & Offboarding</span>
+        <span class="skill-tag">Benefits Administration</span>
+        <span class="skill-tag">HR Compliance</span>
+        <span class="skill-tag">Employee Engagement</span>
+        <span class="skill-tag">Learning & Development</span>
+        <span class="skill-tag">HR Metrics & Reporting</span>
+        <span class="skill-tag">Project Management</span>
+        <span class="skill-tag">Employer Branding</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION PAGE -->
+  <section id="education" class="page-section">
+    <div class="content-section animate-in">
+      <h2 class="section-heading centered" style="text-align: center;">Education & Learning Journey</h2>
+
+      <p style="border: none; background: transparent; text-align: center; margin-bottom: 2rem;">
+        I value lifelong learning — both in formal classrooms and through self-directed growth.
+      </p>
+
+      <h3 class="section-heading">Certifications</h3>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h4 style="color: var(--ocean-deep);">SHRM-CP</h4>
+          <p style="border: none; background: transparent; margin: 0;">Society for Human Resource Management</p>
+          <p style="border: none; background: transparent; color: var(--gold-deep); font-style: italic;">February 2026</p>
+        </div>
+        <div class="edu-card">
+          <h4 style="color: var(--ocean-deep);">Web Development Course</h4>
+          <p style="border: none; background: transparent; margin: 0;">University of California, Davis</p>
+          <p style="border: none; background: transparent; color: var(--gold-deep); font-style: italic;">Completed March 2021</p>
+        </div>
+      </div>
+
+      <h3 class="section-heading" style="margin-top: 2.5rem;">Higher Education</h3>
+      <div class="edu-card">
+        <h4 style="color: var(--ocean-deep);">Hobart and William Smith Colleges</h4>
+        <p style="border: none; background: transparent; margin: 0.5rem 0;">Bachelor of Arts in Media and Society</p>
+        <p style="border: none; background: transparent; margin: 0; color: var(--gold-deep);">Minor in Geoscience | 2015 - 2019</p>
+        <p style="border: none; background: transparent; margin: 0.5rem 0;">President & Founder of PAWS on Campus (Pro Animal Wellness Society)</p>
+      </div>
+
+      <h3 class="section-heading" style="margin-top: 2.5rem;">Continuing Education</h3>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h4 style="color: var(--ocean-deep);">Interior Design Course</h4>
+          <p style="border: none; background: transparent; margin: 0;">New York Institute of Art and Design</p>
+          <p style="border: none; background: transparent; color: var(--gold-deep); font-style: italic;">2020 - 2022</p>
+        </div>
+        <div class="edu-card">
+          <h4 style="color: var(--ocean-deep);">Website Development</h4>
+          <p style="border: none; background: transparent; margin: 0;">UC Davis Continuing Education</p>
+          <p style="border: none; background: transparent; color: var(--gold-deep); font-style: italic;">March - July 2021</p>
+        </div>
+      </div>
+
+      <div class="gold-accent"></div>
+
+      <h3 class="section-heading" style="margin-top: 2.5rem;">Academic Journey</h3>
+      <ul style="background: transparent;">
+        <li><strong>French American School of New York</strong> — Early childhood through kindergarten (2000–2003)</li>
+        <li><strong>Riverside Elementary School</strong> — Elementary years (2006–2008)</li>
+        <li><strong>Eastern Middle School</strong> — Middle school (2008–2011)</li>
+        <li><strong>Greenwich High School</strong> — High school (2011–2015)</li>
+      </ul>
+
+      <p style="border: none; background: transparent; text-align: left; margin-top: 2rem; font-style: italic; color: var(--text-light);">
+        My education and certifications have strengthened my HR knowledge and reinforced my focus on improving employee experience, operational efficiency, and aligning organizational culture with brand identity.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONNECT PAGE -->
+  <section id="connect" class="page-section">
+    <div class="content-section animate-in">
+      <h2 class="section-heading centered" style="text-align: center;">Connect With Me</h2>
+
+      <!-- Profile Photo Section -->
+      <div class="profile-container">
+        <img src="images/f3556bea-5e5b-460f-9027-56a433496863.jpg" alt="Marie Claire Hamet, SHRM-CP" class="profile-image">
+        <h3 class="profile-name">Marie Claire Hamet, SHRM-CP</h3>
+        <p class="profile-title">HR Professional | People Operations</p>
+      </div>
+
+      <div class="contact-methods">
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <h4>Email</h4>
+          <a href="mailto:marieclairehamet@gmail.com">marieclairehamet@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">💼</div>
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/marieclairehamet" target="_blank">linkedin.com/in/marieclairehamet</a>
+        </div>
+      </div>
+
+      <div class="gold-accent"></div>
+
+      <h3 class="section-heading" style="margin-top: 2rem;">Send a Message</h3>
+      <p style="border: none; background: transparent; text-align: left; margin-bottom: 1.5rem;">
+        Fill out the form below to test the function of this site I coded from scratch!
+      </p>
+
+      <form id="contact-form" onsubmit="sendEmail(event)">
+        <label for="music-section" style="font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; display: block;">
+          What's your favorite music genre?
+        </label>
+        <div class="checkbox-group" id="music-section">
+          <label class="checkbox-item">
+            <input type="checkbox" name="music[]" value="Pop"> Pop
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="music[]" value="Rock"> Rock
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="music[]" value="Jazz"> Jazz
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="music[]" value="Classical"> Classical
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="music[]" value="Hip-Hop"> Hip-Hop
+          </label>
+        </div>
+
+        <label for="message" style="margin-top: 1.5rem;">Your Message</label>
+        <textarea name="message" id="message" placeholder="Type your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Marie Claire Hamet, SHRM-CP. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="mailto:marieclairehamet@gmail.com">marieclairehamet@gmail.com</a> • 
+      <a href="https://www.linkedin.com/in/marieclairehamet" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    function sendEmail(e) {
+      e.preventDefault();
+      const checked = document.querySelectorAll('input[name="music[]"]:checked');
+      const genres = Array.from(checked).map(cb => cb.value).join(', ');
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent('Message from your website');
+      let body = '';
+      if (genres) body += 'Favorite music genre(s): ' + genres + '\n\n';
+      if (message) body += message;
+      window.location.href = 'mailto:marieclairehamet@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body.trim());
+    }
+  </script>
+
+  <!-- Navigation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pageSections = document.querySelectorAll('.page-section');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetPage = this.getAttribute('data-page');
+          
+          // Remove active class from all links and sections
+          navLinks.forEach(l => l.classList.remove('active'));
+          pageSections.forEach(s => s.classList.remove('active'));
+          
+          // Add active class to clicked link and target section
+          document.querySelectorAll(`[data-page="${targetPage}"]`).forEach(el => {
+            el.classList.add('active');
+          });
+          document.getElementById(targetPage).classList.add('active');
+          
+          // Scroll to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
